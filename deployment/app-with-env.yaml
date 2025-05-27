@@ -1,0 +1,36 @@
+name: ai-project-intake-system
+region: nyc
+services:
+- build_command: cd main-web-app && npm ci && npm run build
+  environment_slug: node-js
+  github:
+    branch: main
+    deploy_on_push: true
+    repo: jhillbht/ai-project-intake-system
+  http_port: 3000
+  instance_count: 1
+  instance_size_slug: basic-xxs
+  name: main-web-app
+  routes:
+  - path: /
+  run_command: cd main-web-app && npm start
+  source_dir: /
+  envs:
+  - key: NODE_ENV
+    scope: RUN_AND_BUILD_TIME
+    value: production
+  - key: OPENAI_API_KEY
+    scope: RUN_TIME
+    type: SECRET
+  - key: SLACK_BOT_TOKEN
+    scope: RUN_TIME
+    type: SECRET
+  - key: SLACK_TEAM_ID
+    scope: RUN_TIME
+    value: "TU9TXDD71/CTXUAD5QR"
+  - key: ATLASSIAN_MCP_ENDPOINT
+    scope: RUN_TIME
+    value: "https://mcp.atlassian.com/v1/sse"
+  - key: MEM0_API_KEY
+    scope: RUN_TIME
+    type: SECRET

@@ -1,0 +1,13 @@
+{
+  "name": "ai-project-intake-system",
+  "version": "1.0.0",
+  "description": "AI Project Intake & Development Pipeline",
+  "scripts": {
+    "build": "cd main-web-app && npm ci && npm run build",
+    "start": "cd main-web-app && npm start",
+    "dev": "cd main-web-app && npm run dev"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

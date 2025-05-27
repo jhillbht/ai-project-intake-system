@@ -1,0 +1,17 @@
+name: ai-project-intake-system
+region: nyc
+services:
+- build_command: cd main-web-app && npm ci && npm run build
+  environment_slug: node-js
+  github:
+    branch: main
+    deploy_on_push: true
+    repo: jhillbht/ai-project-intake-system
+  http_port: 3000
+  instance_count: 1
+  instance_size_slug: basic-xxs
+  name: main-web-app
+  routes:
+  - path: /
+  run_command: cd main-web-app && npm start
+  source_dir: /
